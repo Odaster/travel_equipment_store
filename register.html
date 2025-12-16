@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Аренда туристического снаряжения - Регистрация</title>
+  <meta charset="utf-8" />
+  <style>
+    body {
+      background-color: #ffffff;
+      color: #000000;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #000000;
+      color: #ffffff; /* Изменен цвет шрифта на белый */
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    .navigation {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .navigation a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #ffffff; /* Изменен цвет ссылок на белый */
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="submit"] {
+      width: 300px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    input[type="submit"] {
+      background-color: #00c853;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    .error-message {
+      color: red;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Аренда туристического снаряжения</h1>
+    <div class="navigation">
+      <a href="index.html">На главную</a>
+      <a href="login.html">Войти</a>
+      <a href="register.html">Зарегистрироваться</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <h2>Регистрация</h2>
+    <form action="register1.php" method="POST" onsubmit="return validateForm()">
+      <input type="text" name="username" placeholder="Имя пользователя" required>
+      <input type="password" name="password" id="password" placeholder="Пароль" required>
+      <input type="password" name="confirm_password" id="confirm_password" placeholder="Подтвердите пароль" required>
+      <p id="password_error" class="error-message"></p>
+      <input type="submit" value="Зарегистрироваться">
+    </form>
+
+    <p>Уже есть аккаунт? <a href="login.html">Войдите!</a></p>
+  </div>
+
+  <script>
+    function validateForm() {
+      var password = document.getElementById("password").value;
+      var confirm_password = document.getElementById("confirm_password").value;
+      var password_error = document.getElementById("password_error");
+      
+      if (password !== confirm_password) {
+        password_error.textContent = "Пароли не совпадают";
+        return false;
+      }
+      
+      password_error.textContent = "";
+      return true;
+    }
+  </script>
+</body>
+</html>
